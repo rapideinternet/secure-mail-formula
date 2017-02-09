@@ -1,5 +1,5 @@
 
-{% if salt['pillar.get']('secure-mail:domain-name') is defined %}
+{% if salt['pillar.get']('secure-mail:domain-name') is defined and salt['pillar.get']('secure-mail:domain-name')|length %}
 sm-install-cert:
   cmd.run:
     - name: "/usr/src/certbot/certbot-auto certonly -n -m certs@rapide.nl --quiet --agree-tos --expand --webroot -w /var/www/default/httpdocs -d {{ salt['pillar.get']('secure-mail:domain-name') }}"
