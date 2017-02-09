@@ -1,0 +1,3 @@
+#!/bin/sh
+cat /etc/letsencrypt/live/{{ salt['pillar.get']('secure-mail:domain-name') }}/fullchain.pem /etc/letsencrypt/live/{{ salt['pillar.get']('secure-mail:domain-name') }}/privkey.pem > /etc/ssl/private/dovecot.pem
+ln -s /etc/ssl/private/postfix.pem /etc/ssl/private/dovecot.pem
