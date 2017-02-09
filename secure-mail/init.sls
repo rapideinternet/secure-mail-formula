@@ -13,6 +13,13 @@ sm-install-cert:
     - template: jinja
     - require:
       - cmd: sm-install-cert
+      
+sm-update-certs:
+  cmd.run:
+    - name: "sh /usr/local/bin/update-certs"
+    - require:
+      - cmd: sm-install-cert
+
 {% else %}
   /usr/local/bin/update-certs:
     file.managed:
