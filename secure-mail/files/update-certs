@@ -2,7 +2,7 @@
 cat /etc/letsencrypt/live/{{ salt['pillar.get']('secure-mail:domain-name') }}/fullchain.pem /etc/letsencrypt/live/{{ salt['pillar.get']('secure-mail:domain-name') }}/privkey.pem > /etc/ssl/private/dovecot.pem
 rm /etc/ssl/private/postfix.pem 
 ln -s /etc/ssl/private/dovecot.pem /etc/ssl/private/postfix.pem
-rm /etc/ssl/private/lightttpd.pem
+rm /etc/ssl/private/lighttpd.pem
 ln -s /etc/ssl/private/dovecot.pem /etc/ssl/private/lighttpd.pem
 service postfix reload
 service dovecot reload
