@@ -17,4 +17,5 @@ sm-install-cert:
   /usr/local/bin/update-certs:
     file.managed:
       - source: salt://secure-mail/files/update-certs-normal
+      - template: jinja
 {% endif %}
