@@ -1,2 +1,3 @@
 #!/bin/sh
 cat /etc/letsencrypt/live/{{ pillar['__reclass__']['nodename'] }}/privkey.pem /etc/letsencrypt/live/{{ pillar['__reclass__']['nodename'] }}/cert.pem /etc/letsencrypt/live/{{ pillar['__reclass__']['nodename'] }}/chain.pem > /etc/ssl/private/lighttpd.pem
+service lighttpd restart
